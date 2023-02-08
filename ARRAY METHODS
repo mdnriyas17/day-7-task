@@ -1,1 +1,17 @@
 
+var request = new XMLHttpRequest();
+
+request.open("GET", "https://restcountries.com/v3.1/all")
+request.send();
+
+// GET THE RESPONSE FROM SERVER
+request.onload = function () {
+    var data = JSON.parse(this.responseText);
+    var result=data.reduce((acc,element)=>{
+    if (typeof acc === 'object') {
+    return acc.population+element.population
+    }
+    return acc+element.population
+    })
+console.log(result);
+    }
