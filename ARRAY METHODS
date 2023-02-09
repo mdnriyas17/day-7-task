@@ -1,4 +1,29 @@
 
+
+// XMLHTTPREQUEST is an browser api
+var request = new XMLHttpRequest();
+
+request.open("GET", "https://restcountries.com/v3.1/all")
+request.send();
+
+// GET THE RESPONSE FROM SERVER
+request.onload = function () {
+    var data = JSON.parse(this.responseText);
+    let arr =data
+    const asianCountries = arr.filter((country) =>{
+   
+   if(country.region === "Asia")
+   
+  console.log(country.name.common);
+  }
+)};
+
+
+
+
+
+
+
 var request = new XMLHttpRequest();
 
 request.open("GET", "https://restcountries.com/v3.1/all")
